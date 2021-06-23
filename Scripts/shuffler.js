@@ -1,6 +1,4 @@
-var jonathan = [1, 2, 3, 4, 5, 6, 7, 8];
-var deck = jonathan;
-var card = 0;
+var currentCard = 0;
 
 Array.prototype.shuffler = function() {
     let i, j, mixed;
@@ -12,16 +10,16 @@ Array.prototype.shuffler = function() {
     }
     return this;
 }
-function shuffleTheDeck() {
-    deck = [];
-    card = 0;
-    deck = jonathan.shuffler();
+function shuffleDeck() {
+    currentCard = 0;
+    deck = deck.shuffler();
+    document.getElementById("target").innerHTML = "";
 }
-function cardPicker() {
-    let nextOne = deck[card];
-    if ((deck.length - card) > 0) {
-        document.getElementById("target").innerHTML = nextOne;
-        card++;
+function topCard() {
+    let nextOne = deck[currentCard];
+    if ((deck.length - currentCard) > 0) {
+        document.getElementById("target").innerHTML = nextOne.card;
+        currentCard++;
     } else {
         document.getElementById("target").innerHTML = "Shuffle";
     }
