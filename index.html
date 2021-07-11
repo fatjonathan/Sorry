@@ -2,13 +2,16 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="Stylesheets/layout.css">
 		<script type="text/javascript" src="Scripts/cards.js"></script>
 		<script type="text/javascript" src="Scripts/shuffler.js"></script>
 		<title>Sorry Cards</title>
 	</head>
 	<body>
-		<button type="button" onclick="shuffleDeck()">Shuffle</button>
-		<button type="button" onclick="topCard()">Hit me!</button>
-		<div id="target"></div>
+		<div id="top_button" class="button" onclick="shuffleDeck()" style="cursor: pointer"><a onclick="shuffleDeck()">Shuffle</a></div>
+		<div id="top_text" class="small"></div>
+		<div id="value"></div>
+		<div id="bottom_text" class="small"></div>
+		<div id="bottom_button" class="button" onclick="shuffleDeck()" style="cursor: pointer"><a onclick="shuffleDeck()">Shuffle</a></div>
 	</body>
 </html>

@@ -10,17 +10,35 @@ Array.prototype.shuffler = function() {
     }
     return this;
 }
+function allClear() {
+    document.getElementById("top_text").innerHTML = "";
+    document.getElementById("value").innerHTML = "";
+    document.getElementById("bottom_text").innerHTML = "";
+}
 function shuffleDeck() {
     currentCard = 0;
     deck = deck.shuffler();
-    document.getElementById("target").innerHTML = "";
+    allClear();
+    topCard();//should be a next card button.
 }
 function topCard() {
     let nextOne = deck[currentCard];
     if ((deck.length - currentCard) > 0) {
-        document.getElementById("target").innerHTML = nextOne.card;
+        showCard(nextOne);
         currentCard++;
     } else {
-        document.getElementById("target").innerHTML = "Shuffle";
+        allClear();
+        document.getElementById("value").innerHTML = "Shuffle";
     }
+}
+function showCard(card) {
+    let valueHolder = document.createElement("div");
+    valueHolder.setAttribute("id", "value_holder");
+    valueHolder.setAttribute("style", "cursor: pointer");
+    valueHolder.setAttribute("onclick", "topCard()");
+    valueHolder.appendChild(document.createTextNode(card.value));
+    allClear();
+    document.getElementById("top_text").innerHTML = card.text;
+    document.getElementById("value").append(valueHolder);
+    document.getElementById("bottom_text").innerHTML = card.text;
 }
