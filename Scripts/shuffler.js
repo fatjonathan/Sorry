@@ -11,9 +11,8 @@ Array.prototype.shuffler = function() {
     return this;
 }
 function allClear() {
-    document.getElementById("top_text").innerHTML = "";
     document.getElementById("value").innerHTML = "";
-    document.getElementById("bottom_text").innerHTML = "";
+    document.getElementById("text").innerHTML = "";
 }
 function shuffleDeck() {
     currentCard = 0;
@@ -38,7 +37,6 @@ function showCard(card) {
     valueHolder.setAttribute("onclick", "topCard()");
     valueHolder.appendChild(document.createTextNode(card.value));
     allClear();
-    document.getElementById("top_text").innerHTML = card.text;
     document.getElementById("value").append(valueHolder);
-    document.getElementById("bottom_text").innerHTML = card.text;
+    document.getElementById("text").innerHTML = card.text;
 }
